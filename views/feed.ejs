@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feed de Posts</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <!-- Inclure le header ici -->
+    </header>
+    <main>
+        <h1>Feed de Posts</h1>
+        <% posts.forEach(post => { %>
+            <div class="post">
+                <h2><%= post.username %></h2>
+                <p><%= post.content %></p>
+                <a href="/post/<%= post.id %>">Voir les commentaires</a>
+            </div>
+        <% }); %>
+    </main>
+    <footer>
+        <!-- Inclure le footer ici -->
+    </footer>
+</body>
+</html>
