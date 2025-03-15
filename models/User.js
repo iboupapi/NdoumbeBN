@@ -17,3 +17,8 @@ exports.getUserById = (id, callback) => {
   const query = 'SELECT * FROM users WHERE id = ?';
   db.query(query, [id], callback);
 };
+//profile
+exports.getUserById = (id, callback) => {
+  const query = `SELECT * FROM users WHERE id = ?`;
+  db.query(query, [id], callback);
+};

@@ -7,18 +7,6 @@ router.get('/', (req, res) => {
   res.render('index');
 });
 
-// Page de profil utilisateur
-router.get('/profile/:id', (req, res) => {
-  const userId = req.params.id;
-  const query = 'SELECT * FROM users WHERE id = ?';
-
-  db.query(query, [userId], (err, result) => {
-    if (err) throw err;
-    const user = result[0];
-    res.render('profile', { user });
-  });
-});
-
 // Page de création de post
 router.get('/posts/create', (req, res) => {
   if (!req.session.userId) {

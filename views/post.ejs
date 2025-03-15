@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Post</title>
+    <title><%= post.title || "Post" %></title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <header>
-        <!-- Inclure le header ici -->
+        <!-- Votre contenu d'en-tête ici -->
     </header>
     <main>
-        <h1><%= post.username %> a posté :</h1>
+        <h1>Post de <%= post.username %></h1>
         <p><%= post.content %></p>
         <h2>Commentaires</h2>
-        <% comments.forEach(comment => { %>
-            <div class="comment">
-                <p><%= comment.username %> : <%= comment.content %></p>
-            </div>
-        <% }); %>
-        <form action="/comments/create" method="post">
+        <ul>
+            <% comments.forEach(comment => { %>
+                <li><strong><%= comment.username %>:</strong> <%= comment.content %></li>
+            <% }) %>
+        </ul>
+        <h2>Ajouter un commentaire</h2>
+        <form action="/comments/create" method="POST">
             <input type="hidden" name="postId" value="<%= post.id %>">
-            <textarea name="content" required></textarea>
-            <button type="submit">Ajouter un commentaire</button>
+            <textarea name="content" placeholder="Écrivez votre commentaire ici..."></textarea>
+            <button type="submit">Publier</button>
         </form>
     </main>
     <footer>
-        <!-- Inclure le footer ici -->
+        <!-- Votre contenu de pied de page ici -->
     </footer>
 </body>
 </html>

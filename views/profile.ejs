@@ -1,21 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Profil Utilisateur</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>Profil de <%= user.username %></title>
 </head>
 <body>
-    <header>
-        <!-- Inclure le header ici -->
-    </header>
-    <main>
-        <h1>Profil de <%= user.username %></h1>
-        <p>Email: <%= user.email %></p>
-        <!-- Afficher d'autres informations utilisateur ici -->
-    </main>
-    <footer>
-        <!-- Inclure le footer ici -->
-    </footer>
+    <h1>Profil de <%= user.username %></h1>
+    <p>Email : <%= user.email %></p>
+    <p>Nom d'utilisateur : <%= user.username %></p>
+    <a href="/">Retour à l'accueil</a>
 </body>
 </html>

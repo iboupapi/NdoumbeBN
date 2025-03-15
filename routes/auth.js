@@ -33,6 +33,10 @@ router.post('/login', (req, res) => {
       const match = await bcrypt.compare(password, user.password);
       if (match) {
         req.session.userId = user.id;
+        const userId = req.session.userId; // Récupération de l'ID utilisateur
+        if (!userId) {
+        return res.status(401).send('Utilisateur non connecté.');
+        }
         res.redirect('/');
       } else {
         res.redirect('/auth/login');

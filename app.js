@@ -43,7 +43,8 @@ const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/post');
 const commentRoutes = require('./routes/comment');
 const likeRoutes = require('./routes/like');
-
+const profileRoutes = require('./routes/profile');
+app.use('/', profileRoutes);
 app.use('/auth', authRoutes);
 app.use('/posts', postRoutes);
 app.use('/comments', commentRoutes);
