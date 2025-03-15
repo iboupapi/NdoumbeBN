@@ -37,6 +37,7 @@ app.use(session({
 }));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 // Définir les routes
 const authRoutes = require('./routes/auth');
@@ -44,6 +45,9 @@ const postRoutes = require('./routes/post');
 const commentRoutes = require('./routes/comment');
 const likeRoutes = require('./routes/like');
 const profileRoutes = require('./routes/profile');
+const followRoutes = require('./routes/follow');
+
+app.use('/follows', followRoutes);
 app.use('/', profileRoutes);
 app.use('/auth', authRoutes);
 app.use('/posts', postRoutes);

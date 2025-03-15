@@ -11,8 +11,9 @@
     </header>
     <main>
         <h1>Créer un nouveau post</h1>
-        <form action="/posts/create" method="POST">
-            <textarea name="content" placeholder="Écrivez votre post ici..."></textarea>
+        <form action="/posts/create" method="POST" enctype="multipart/form-data">
+            <textarea name="content" placeholder="Écrivez votre description ici..."></textarea>
+            <input type="file" name="image" accept="image/*">
             <button type="submit">Publier</button>
         </form>
     </main>

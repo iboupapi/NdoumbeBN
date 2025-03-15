@@ -16,7 +16,13 @@
             <% posts.forEach(post => { %>
                 <div class="post">
                     <h2><%= post.username %></h2>
-                    <p><%= post.content %></p>
+                     <p><%= post.content %></p>
+                     <% if (post.image) { %>
+                    <img src="<%= post.image %>" alt="Image du post" style="max-width: 100%; height: auto;">
+                        <% } %>
+                        <p id="like-count-<%= post.id %>"><%= post.like_count %> likes</p>
+                        <button class="like-button" data-post-id="<%= post.id %>" data-action="like">Like</button>
+                        <button class="unlike-button" data-post-id="<%= post.id %>" data-action="unlike">Unlike</button>
                     <a href="/profile/<%= post.user_id %>">Voir le profil</a>
                     <h2>Ajouter un commentaire</h2>
                     <form action="/comments/create" method="POST">
@@ -37,5 +43,41 @@
         
         <!-- Inclure le footer ici -->
     </footer>
+
+<script>
+    document.querySelectorAll('.like-button, .unlike-button').forEach(button => {
+    button.addEventListener('click', function () {
+        const postId = this.getAttribute('data-post-id');
+        const action = this.getAttribute('data-action'); // "like" ou "unlike"
+
+        fetch(`/likes/${action}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ post_id: postId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const likeCount = document.getElementById(`like-count-${postId}`);
+                likeCount.textContent = `${data.like_count} likes`;
+
+                if (action === 'like') {
+                    document.querySelector(`#post-${postId} .like-button`).disabled = true;
+                    document.querySelector(`#post-${postId} .unlike-button`).disabled = false;
+                } else {
+                    document.querySelector(`#post-${postId} .unlike-button`).disabled = true;
+                    document.querySelector(`#post-${postId} .like-button`).disabled = false;
+                }
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error('Erreur:', error));
+    });
+});
+
+</script>
 </body>
 </html>

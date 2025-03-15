@@ -1,13 +1,52 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Profil de <%= user.username %></title>
-</head>
-<body>
-    <h1>Profil de <%= user.username %></h1>
-    <p>Email : <%= user.email %></p>
-    <p>Nom d'utilisateur : <%= user.username %></p>
-    <a href="/">Retour à l'accueil</a>
-</body>
-</html>
+<h1>Profil de <%= user.username %></h1>
+<p>Email : <%= user.email %></p>
+<p>Followers : <%= followerCount %></p>
+<p>Following : <%= followingCount %></p>
+
+<div id="follow-section">
+    <% if (isFollowing) { %>
+        <button id="unfollow-button" data-user-id="<%= user.id %>">Unfollow</button>
+    <% } else { %>
+        <button id="follow-button" data-user-id="<%= user.id %>">Follow</button>
+    <% } %>
+</div>
+
+<script>
+    document.getElementById('follow-button')?.addEventListener('click', function () {
+        const userId = this.getAttribute('data-user-id');
+        fetch(`/profile/${userId}/follow`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('follow-section').innerHTML = `
+                    <button id="unfollow-button" data-user-id="${userId}">Unfollow</button>
+                `;
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error('Erreur:', error));
+    });
+
+    document.getElementById('unfollow-button')?.addEventListener('click', function () {
+        const userId = this.getAttribute('data-user-id');
+        fetch(`/profile/${userId}/unfollow`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('follow-section').innerHTML = `
+                    <button id="follow-button" data-user-id="${userId}">Follow</button>
+                `;
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error('Erreur:', error));
+    });
+</script>
