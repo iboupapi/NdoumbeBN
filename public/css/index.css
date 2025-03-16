@@ -11,7 +11,7 @@
 }
 
 header{
-    background: url("/images/WhatsApp\ Image\ 2025-03-11\ à\ 20.59.29_a2fc3f6b.jpg");
+    background: url("/images/background3.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -19,36 +19,35 @@ header{
     height: 100vh;
 }
 
-.nav{
+.nav {
     float: right;
     margin-right: 5%;
     margin-top: -10%;
-    
 }
 
-.nav ul{
+.nav ul {
     display: flex;
     list-style: none;
-   
-   
-   
+    gap: 20px; /* Espacement entre les liens */
 }
 
-ul li a{
-    text-decoration: none;
-    color: black;
-    
+.nav ul li a {
+    text-decoration: none; /* Supprime le soulignement par défaut */
+    color: white; /* Texte blanc pour contraste */
+    background-color: #0e100f; /* Vert clair moderne pour le fond */
+    padding: 10px 20px; /* Crée une sensation de bouton */
+    border-radius: 25px; /* Coins arrondis pour un design moderne */
+    transition: all 0.3s ease; /* Animation fluide au survol */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Ombre subtile pour un effet de profondeur */
 }
 
-.nav ul li a{
-    margin: 40px;
-    
-    
+.nav ul li a:hover {
+    background-color: #27ae60; /* Vert foncé au survol */
+    color: #f1f1f1; /* Texte légèrement éclairci */
+    transform: translateY(-2px); /* Léger déplacement vers le haut au survol */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Ombre renforcée au survol */
 }
 
-li a:hover{
-    color: white;
-}
 
 h2{
     margin-left: 10%;
@@ -77,15 +76,6 @@ h3{
     margin-left: 15px;
 }
 
-.formulaire{
-    margin-left: 31%;
-    border: 1px solid black;
-    width: 400px;
-    height: 350px;
-    background-color: rgba(63, 215, 63, 0.799);
-    margin-top: 2%;
-    
-}
 
 form{
     text-align: center;
@@ -93,13 +83,23 @@ form{
   
 }
 
-.formulaire p{
-    margin-top: 6%;
-    color: white;
-    margin-right: -8%;
-    font-size: 30px;
- 
+.formulaire {
+    margin: auto; /* Centré */
+    border: none; /* Supprime la bordure noire */
+    width: 400px;
+    padding: 20px;
+    height: auto;
+    border-radius: 15px;
+    background-color: rgba(39, 174, 96, 0.9); /* Vert moderne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
 }
+
+.formulaire p {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
 
 .connexion{
     margin-left: 5%;
@@ -117,7 +117,7 @@ input{
     color: white;
 }
 
-.footer{
+footer{
     border: 1px solid black;
     width: 100vw;
     height: 300px;
@@ -145,12 +145,187 @@ div a{
     margin-left: 10%;
 }
 
+input {
+    width: calc(100% - 40px); /* Largeur responsive */
+    padding: 10px;
+    margin: 10px 20px;
+    border: 2px solid #27ae60;
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #1e8449;
+    outline: none; /* Supprime l'effet d'origine */
+}
+
+#Seconnecter {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#Seconnecter:hover {
+    background-color: #1e8449;
+}
+/* Réglages de base */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #007b5e;
+    margin-bottom: 20px;
+}
+
+h4 {
+    font-size: 1.5rem;
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: justify;
+    margin: 10px 0;
+}
+
+.highlight {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Présentation */
+.presentation {
+    padding: 40px;
+    background-color: #a8d5ba; /* Vert menthe clair */
+    color: #004d33; /* Texte en vert foncé pour contraste */
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.nom {
+    color: #3498db; /* Bleu doux, moderne et élégant */
+    font-weight: bold;
+    font-size: 1.5rem; /* Taille légèrement augmentée pour distinction, mais proche du texte */
+    text-transform: uppercase; /* Mise en majuscules pour lui donner du caractère */
+    letter-spacing: 1px; /* Espacement des lettres pour une touche sophistiquée */
+}
+.nom1{
+    color: #3498db; /* Bleu doux, moderne et élégant */
+    font-weight: bold;
+    font-size: 2rem; /* Taille légèrement augmentée pour distinction, mais proche du texte */
+    text-transform: uppercase; /* Mise en majuscules pour lui donner du caractère */
+    letter-spacing: 1px; /* Espacement des lettres pour une touche sophistiquée */
+}
 
 
+/* Offre */
+.offre {
+    padding: 40px;
+    background-color: #ffffff; /* Fond blanc pour une lisibilité optimale */
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
 
+.offre-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
 
+.offre-list div {
+    padding: 20px;
+    background-color: #dff5e1; /* Vert pastel pour les boîtes */
+    color: #2f4f4f; /* Texte en gris foncé pour le contraste */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.offre-list div:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+    background-color: #cfeadb; /* Éclaircissement au survol */
+}
+/* Philosophie */
+.philosophie {
+    padding: 40px;
+    background-color: #e8f6ef; /* Fond vert pastel très clair */
+    color: #004d33; /* Texte vert foncé pour contraste */
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px;
+}
 
+#foot {
+    background-color: #27ae60; /* Vert moderne */
+    color: rgb(15, 13, 13);
+    padding: 20px 0;
+    text-align: center;
+}
 
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 colonnes égales */
+    grid-gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
+.footer-logo img {
+    margin: 0 auto; /* Centre le logo */
+    display: block;
+}
 
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
 
+.footer-links li {
+    margin: 10px 0;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #c0ffd9; /* Vert clair au survol */
+}
+
+.footer-socials a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #c0ffd9;
+}
+
+.footer-credits {
+    grid-column: span 3; /* S'étend sur les 3 colonnes */
+    font-size: 0.9rem;
+    margin-top: 20px;
+    color: #e6ffe6; /* Texte légèrement plus clair */
+}

@@ -4,111 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Privé</title>
-    <script src="/socket.io/socket.io.js"></script>
+    <!--<script src="/socket.io/socket.io.js"></script>
     <style>
         /* Styles généraux */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff; /* Blanc */
-    color: #333; /* Texte noir doux */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-align: center;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Blanc */
+            color: #333; /* Texte noir doux */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+        }
 
-h1 {
-    background-color: #007b5e; /* Vert principal */
-    color: #fff; /* Blanc pour contraste */
-    padding: 10px 0;
-    margin: 0;
-}
+        h1 {
+            background-color: #007b5e; /* Vert principal */
+            color: #fff; /* Blanc pour contraste */
+            padding: 10px 0;
+            margin: 0;
+        }
 
-p {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #333; /* Couleur de texte principale */
-}
+        p {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #333; /* Couleur de texte principale */
+        }
 
-#messages {
-    list-style-type: none;
-    padding: 10px;
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 20px auto 10px;
-    width: 90%; /* Largeur ajustée pour le centrage */
-    background-color: #f9f9f9; /* Fond gris léger */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
-}
+        #messages {
+            list-style-type: none;
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px auto 10px;
+            width: 90%; /* Largeur ajustée pour le centrage */
+            background-color: #f9f9f9; /* Fond gris léger */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+            display: flex;
+            flex-direction: column; /* Les messages sont affichés verticalement */
+        }
 
-#messages li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
+        #messages li {
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px 0;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
 
-#messages li:last-child {
-    border-bottom: none; /* Supprimer la bordure du dernier élément */
-}
+        .message-sent {
+            background-color: #d1f7d6; /* Vert clair */
+            align-self: flex-end; /* Aligne à droite */
+        }
 
-/* Formulaire */
-form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
+        .message-received {
+            background-color: #f1f1f1; /* Gris clair */
+            align-self: flex-start; /* Aligne à gauche */
+        }
 
-#input {
-    flex: 1;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        /* Formulaire */
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
 
-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #007b5e; /* Vert principal */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        #input {
+            flex: 1;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-button:hover {
-    background-color: #005f46; /* Vert foncé au survol */
-}
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007b5e; /* Vert principal */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-/* Responsivité */
-@media (max-width: 768px) {
-    #messages {
-        width: 95%; /* Réduction de la largeur */
+        button:hover {
+            background-color: #005f46; /* Vert foncé au survol */
+        }
+
+        /* Responsivité */
+        @media (max-width: 768px) {
+            #messages {
+                width: 95%; /* Réduction de la largeur */
+            }
+
+            form {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            #input {
+                width: 100%; /* Ajuste l'input pour mobile */
+            }
+
+            button {
+                width: 100%; /* Bouton de même largeur */
+            }
+        }
+    </style>-->
+    
+    <style>
+           header {
+        display: flex; /* Active le modèle Flexbox */
+        align-items: center; /* Aligne verticalement les éléments au centre */
+        justify-content: space-between; /* Espace entre le bouton de gauche et le logo de droite */
+        padding: 10px 20px;
+        background-color: var(--primary-color); /* Couleur verte de l'en-tête */
+        border-bottom: 3px solid var(--dark-color);
     }
 
-    form {
-        flex-direction: column;
-        gap: 5px;
+    .back-button {
+        margin: 0; /* Supprime les marges inutiles */
+        padding: 10px 20px;
+        background-color: var(--primary-color); /* Couleur verte */
+        color: var(--secondary-color); /* Couleur blanche */
+        text-decoration: none;
+        border-radius: 20px; /* Coins arrondis */
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour un effet moderne */
+        transition: background-color 0.3s ease; /* Animation pour le survol */
     }
 
-    #input {
-        width: 100%; /* Ajuste l'input pour mobile */
+    .back-button:hover {
+        background-color: #27ae60; /* Vert plus foncé au survol */
     }
 
-    button {
-        width: 100%; /* Bouton de même largeur */
+    .logo img {
+        max-width: 150px;
     }
-}
-
+        img{
+            margin-left: 30%;
+        }
+        h1{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <a href="javascript:history.back()" class="back-button">← Retour</a>
+        <div class="logo">
+            <a href="/"><img src="/images/logo_ndoumbé-removebg-preview.png" alt="Logo"></a>
+        </div>
+    </header>
+    <div>
+        <img src="/images/preparation.jpg" alt="Site en Préparation" width="500px">
+        <h1>Fonctionalité Bientôt disponible !</h1>
+    </div>
+
+    <!--
     <h1>Chat privé avec l'utilisateur <%= targetUserId %></h1>
-    <p><%= currentUsername %> soir</p>
+    <p>Connecté en tant que : <%= currentUsername %></p>
     <ul id="messages"></ul>
     <form id="form" action="">
         <input id="input" autocomplete="off" placeholder="Écrivez un message..." />
@@ -116,49 +176,75 @@ button:hover {
     </form>
 
     <script>
-    
-    const socket = io();
+        const socket = io();
 
-    const roomId = `<%= currentUserId %>_<%= targetUserId %>`;
-    const username = '<%= currentUsername %>'; // Nom de l'utilisateur
-    const userId = '<%= currentUserId %>';
-    const token = '<%= token %>'; // Token JWT
+        // Récupérer les données utilisateur depuis EJS
+        const roomId = `<%= currentUserId %>_<%= targetUserId %>`;
+        const username = '<%= currentUsername %>';
+        const userId = '<%= currentUserId %>';
+        const token = '<%= token %>'; // Token JWT
+        const targetUserId = '<%= targetUserId %>'; // Ajouté pour plus de clarté
 
-// Rejoindre une salle
-socket.emit('join room', { roomId, userId, username });
+        // Rejoindre une salle
+        socket.emit('join room', { roomId, userId, username });
+        console.log('Room ID:', roomId);
+console.log('Current User ID:', userId);
+console.log('Target User ID:', targetUserId);
+        // Charger l'historique des messages
+        fetch(`/messages/${roomId}`)
+            .then(response => response.json())
+            .then(messages => {
+                const messageList = document.getElementById('messages');
+                messages.forEach(msg => {
+                    const item = document.createElement('li');
+                    if (msg.sender_id === userId) {
+                        item.classList.add('message-sent');
+                        item.textContent = `Moi : ${msg.content}`;
+                    } else {
+                        item.classList.add('message-received');
+                        item.textContent = `Utilisateur ${msg.sender_id} : ${msg.content}`;
+                    }
+                    messageList.appendChild(item);
+                });
+            })
+            .catch(error => console.error('Erreur lors du chargement des messages :', error));
 
-// Envoi d’un message
-document.getElementById('form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const input = document.getElementById('input');
+        // Envoi d’un message
+        document.getElementById('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = document.getElementById('input');
 
-    if (input.value.trim() !== '') {
-        socket.emit('chat message', {
+            if (input.value.trim() !== '') {
+                socket.emit('chat message', {
             roomId,
+            senderId: userId, // Utilisateur actuel
+            receiverId: targetUserId, // Autre utilisateur
             message: input.value,
-            token // Transmet le token avec le message
+            token // Transmet le token si nécessaire
         });
-        input.value = '';
-    }
-});
 
-// Afficher les messages reçus
-socket.on('chat message', (data) => {
-    const item = document.createElement('li');
-    item.textContent = `${data.sender}: ${data.message}`; // Affiche le nom et le message
-    document.getElementById('messages').appendChild(item);
-});
+                // Afficher immédiatement le message envoyé
+                const item = document.createElement('li');
+                item.classList.add('message-sent');
+                item.textContent = `Moi : ${input.value}`;
+                document.getElementById('messages').appendChild(item);
 
-// Afficher l'historique des messages
-socket.on('chat history', (messages) => {
-    messages.forEach((msg) => {
-        const item = document.createElement('li');
-        item.textContent = `${msg.username}: ${msg.content}`; // Affiche l'historique
-        document.getElementById('messages').appendChild(item);
-    });
-});
+                input.value = '';
+            }
+        });
 
-        
-    </script>
+        // Afficher les messages reçus
+        socket.on('chat message', (data) => {
+            const item = document.createElement('li');
+            if (data.senderId !== userId) {
+                item.classList.add('message-received');
+                item.textContent = `Utilisateur ${data.senderId} : ${data.message}`;
+            } else {
+                item.classList.add('message-sent');
+                item.textContent = `Moi : ${data.message}`;
+            }
+            document.getElementById('messages').appendChild(item);
+        });
+    </script>-->
 </body>
 </html>
