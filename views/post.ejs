@@ -2,31 +2,147 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= post.title || "Post" %></title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2ECC71; /* Vert principal */
+            --secondary-color: #ffffff; /* Blanc */
+            --dark-color: #2d3436; /* Noir/gris foncé */
+            --light-gray: #dfe6e9; /* Gris clair */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-gray);
+            color: var(--dark-color);
+        }
+
+        header {
+        display: flex; /* Active le modèle Flexbox */
+        align-items: center; /* Aligne verticalement les éléments au centre */
+        justify-content: space-between; /* Espace entre le bouton de gauche et le logo de droite */
+        padding: 10px 20px;
+        background-color: var(--primary-color); /* Couleur verte de l'en-tête */
+        border-bottom: 3px solid var(--dark-color);
+    }
+
+    .back-button {
+        margin: 0; /* Supprime les marges inutiles */
+        padding: 10px 20px;
+        background-color: var(--primary-color); /* Couleur verte */
+        color: var(--secondary-color); /* Couleur blanche */
+        text-decoration: none;
+        border-radius: 20px; /* Coins arrondis */
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour un effet moderne */
+        transition: background-color 0.3s ease; /* Animation pour le survol */
+    }
+
+    .back-button:hover {
+        background-color: #27ae60; /* Vert plus foncé au survol */
+    }
+
+    .logo img {
+        max-width: 150px;
+    }
+
+        h1, h2 {
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .comments ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .comments li {
+            background-color: var(--secondary-color);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            resize: vertical;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        form button {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #27ae60;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <!-- Votre contenu d'en-tête ici -->
+        <a href="javascript:history.back()" class="back-button">← Retour</a>
+        <div class="logo">
+            <a href="/"><img src="/images/logo_ndoumbé-removebg-preview.png" alt="Logo"></a>
+        </div>
     </header>
     <main>
         <h1>Post de <%= post.username %></h1>
         <p><%= post.content %></p>
-        <h2>Commentaires</h2>
-        <ul>
-            <% comments.forEach(comment => { %>
-                <li><strong><%= comment.username %>:</strong> <%= comment.content %></li>
-            <% }) %>
-        </ul>
-        <h2>Ajouter un commentaire</h2>
-        <form action="/comments/create" method="POST">
-            <input type="hidden" name="postId" value="<%= post.id %>">
-            <textarea name="content" placeholder="Écrivez votre commentaire ici..."></textarea>
-            <button type="submit">Publier</button>
-        </form>
+
+        <section class="comments">
+            <h2>Commentaires</h2>
+            <ul>
+                <% comments.forEach(comment => { %>
+                    <li><strong><%= comment.username %>:</strong> <%= comment.content %></li>
+                <% }) %>
+            </ul>
+        </section>
+
+        <section class="add-comment">
+            <h2>Ajouter un commentaire</h2>
+            <form action="/comments/create" method="POST">
+                <input type="hidden" name="postId" value="<%= post.id %>">
+                <textarea name="content" placeholder="Écrivez votre commentaire ici..." required></textarea>
+                <button type="submit">Publier</button>
+            </form>
+        </section>
     </main>
     <footer>
-        <!-- Votre contenu de pied de page ici -->
+        <p>© 2025 Mon Application. Tous droits réservés.</p>
     </footer>
 </body>
 </html>

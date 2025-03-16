@@ -1,17 +1,44 @@
-<h1>Profil de <%= user.username %></h1>
-<p>Email : <%= user.email %></p>
-<p>Followers : <%= followerCount %></p>
-<p>Following : <%= followingCount %></p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+    <header>
+        <a href="javascript:history.back()" class="back-button">← Retour</a>
+        <div class="logo">
+            <a href="/"><img src="/images/logo_ndoumbé-removebg-preview.png" alt="Logo"></a>
+        </div>
+    </header>
 
-<div id="follow-section">
-    <% if (isFollowing) { %>
-        <button id="unfollow-button" data-user-id="<%= user.id %>">Unfollow</button>
-    <% } else { %>
-        <button id="follow-button" data-user-id="<%= user.id %>">Follow</button>
-    <% } %>
+<div class="profile-container">
+    <h1 class="profile-title">Profil de <%= user.username %></h1>
+    <p class="profile-info">Email : <%= user.email %></p>
+    <p class="profile-info">Followers : <%= followerCount %></p>
+    <p class="profile-info">Following : <%= followingCount %></p>
+
+    <div id="follow-section">
+        <% if (isFollowing) { %>
+            <button class="btn unfollow-button" data-user-id="<%= user.id %>">Unfollow</button>
+        <% } else { %>
+            <button class="btn follow-button" data-user-id="<%= user.id %>">Follow</button>
+        <% } %>
+    </div>
+
+    <!-- Bouton pour démarrer un chat -->
+    <button class="btn chat-button" id="start-chat" data-user-id="<%= user.id %>">Démarrer une conversation</button>
 </div>
 
+
 <script>
+    document.getElementById('start-chat').addEventListener('click', function () {
+        const userId = this.getAttribute('data-user-id'); // Récupérer l'ID de l'utilisateur cible
+        window.location.href = `/chat/${userId}`; // Redirection vers la salle de chat privée
+    });
     document.getElementById('follow-button')?.addEventListener('click', function () {
         const userId = this.getAttribute('data-user-id');
         fetch(`/profile/${userId}/follow`, {
@@ -50,3 +77,5 @@
         .catch(error => console.error('Erreur:', error));
     });
 </script>
+</body>
+</html>

@@ -2,28 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Connexion</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page de connexion</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/page_connexion.css">
 </head>
 <body>
     <header>
         <!-- Inclure le header ici -->
     </header>
     <main>
+
+
+
+       <!-- <div class="container">
+            <h1>CONNEXION AU COMPTE</h1>
+            <br>
+        <form action="/auth/login">
+            <div class="form-group">
+              <label for="email">USERNAME *</label>
+              <input type="email" class="form-control form-control bg-lighter-gray text-black" id="email" placeholder="Enter your Username">
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="pwd">PASSWORD *</label>
+              <input type="password" class="form-control bg-lighter-gray text-black" id="pwd" placeholder="Enter your Password">
+            </div>
+            <br><br>
+           
+            <button type="submit" style="padding: 6px;" class="btn btn-success">Connexion</button>
+            
+          </form>
+    
+          <div>
+            <br>
+            <a href="/auth/register" style="text-decoration: none;" id="compte">Vous n'avez pas de compte?</a>
+            <a href="/auth/forgot-password" style="text-decoration: none;" id="Mdp">Mot de passe oublié?</a>
+             </div>
+        </div>-->
+
+
+
+        <div class="container">
         <h1>Connexion</h1>
         <form action="/auth/login" method="post">
             <div class="form-group">
                 <label for="email">Email :</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" class="form-control form-control bg-lighter-gray text-black" id="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" class="form-control bg-lighter-gray text-black " id="pwd" name="password" required>
             </div>
-            <button type="submit">Se connecter</button>
+            <button type="submit" class="btn btn-success">Se connecter</button>
         </form>
         <p>Pas encore inscrit ? <a href="/auth/register">Créer un compte</a></p>
-        <p><a href="/auth/forgot-password">Mot de passe oublié ?</a></p>
+        <p><a href="/auth/forgot-password" >Mot de passe oublié ?</a></p>
+    </div>
     </main>
     <footer>
         <!-- Inclure le footer ici -->

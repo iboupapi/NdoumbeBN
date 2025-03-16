@@ -1,0 +1,135 @@
+:root {
+--primary-color: #2ECC71; 
+ --secondary-color: #ffffff; 
+ --dark-color: #2d3436; 
+ --light-gray: #dfe6e9;
+        }
+
+body {
+ font-family: 'Roboto', sans-serif;
+ margin: 0;
+padding: 0;
+  background-color: var(--light-gray);
+  color: var(--dark-color);
+        }
+
+ header {
+    display: flex;
+ background-color: var(--primary-color);
+  color: var(--secondary-color);
+text-align: center;
+padding: 15px 0;
+        }
+
+ul{
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin-left: 400%;
+}
+
+
+h1 {
+margin: 20px 0;
+color: var(--primary-color);
+        }
+
+.profil{
+    margin-left: 75%;
+    margin-top: 10px;
+}
+.post {
+background-color: var(--secondary-color);
+border-radius: 8px;
+margin: 15px auto;
+padding: 20px;
+max-width: 600px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+.post h2 {
+color: var(--dark-color);
+font-size: 18px;
+        }
+
+.post img {
+border-radius: 8px;
+margin-top: 10px;
+max-width: 100%;
+height: auto;
+        }
+
+.post p {
+font-size: 16px;
+margin: 10px 0;
+        }
+
+.like-button, .unlike-button {
+padding: 8px 15px;
+font-size: 14px;
+border: none;
+border-radius: 20px;
+cursor: pointer;
+margin-right: 10px;
+        }
+
+.like-button {
+background-color: var(--primary-color);
+color: var(--secondary-color);
+        }
+
+.unlike-button {
+background-color: var(--dark-color);
+color: var(--secondary-color);
+        }
+
+.like-button:disabled, .unlike-button:disabled {
+background-color: var(--light-gray);
+cursor: not-allowed;
+        }
+
+footer {
+background-color: var(--dark-color);
+color: var(--secondary-color);
+text-align: center;
+padding: 10px 0;
+position: fixed;
+bottom: 0;
+width: 100%;
+        }
+.log, .regi {
+    color: black
+}
+a {
+color: var(--primary-color);
+text-decoration: none;
+font-weight: 500;
+        }
+
+a:hover {
+text-decoration: underline;
+        }
+
+form textarea {
+width: 100%;
+padding: 10px;
+border: 1px solid var(--light-gray);
+border-radius: 5px;
+margin-top: 10px;
+font-size: 14px;
+        }
+
+form button {
+background-color: var(--primary-color);
+color: var(--secondary-color);
+padding: 8px 15px;
+border: none;
+border-radius: 20px;
+font-size: 14px;
+margin-top: 10px;
+cursor: pointer;
+        }
+
+form button:hover {
+            background-color: #27ae60;
+        }

@@ -1,0 +1,104 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; 
+    color: #333; 
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex; /* Active le modèle Flexbox */
+    align-items: center; /* Aligne verticalement les éléments au centre */
+    justify-content: space-between; /* Espace entre le bouton de gauche et le logo de droite */
+    padding: 10px 20px;
+    background-color: var(--primary-color); /* Couleur verte de l'en-tête */
+    border-bottom: 3px solid var(--dark-color);
+}
+
+.back-button {
+    margin: 0; /* Supprime les marges inutiles */
+    padding: 10px 20px;
+    background-color: var(--primary-color); /* Couleur verte */
+    color: var(--secondary-color); /* Couleur blanche */
+    text-decoration: none;
+    border-radius: 20px; /* Coins arrondis */
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour un effet moderne */
+    transition: background-color 0.3s ease; /* Animation pour le survol */
+}
+
+.back-button:hover {
+    background-color: #27ae60; /* Vert plus foncé au survol */
+}
+
+.logo img {
+    max-width: 150px;
+}
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-title {
+    color: #007b5e; 
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+#follow-section {
+    margin: 20px 0;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.follow-button {
+    background-color: #007b5e;
+    color: white;
+}
+
+.follow-button:hover {
+    background-color: #005f46; 
+}
+
+
+.unfollow-button {
+    background-color: #333; 
+    color: white;
+}
+
+.unfollow-button:hover {
+    background-color: #555; 
+}
+
+
+.chat-button {
+    background-color: #e0e0e0; 
+    color: #333;
+}
+
+.chat-button:hover {
+    background-color: #007b5e; 
+    color: white;
+}

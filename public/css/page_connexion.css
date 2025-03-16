@@ -1,0 +1,54 @@
+.container{
+    width: 400px;
+    height: 400px;
+    margin-top: 8%;
+    padding: 3%;
+   
+}
+
+h1{
+    text-align: center;
+    margin-top: 1%;
+    color: green
+}
+
+.bg-lighter-gray {
+    background-color: #f0f0f0; /* Gris très clair */
+    color: #000; /* Noir pour un bon contraste */
+  }
+
+
+button{
+    margin-top: 5%;
+    margin-left: -12%;
+    border: 1px solid black;
+    width: 400px;
+    
+}
+
+div{
+    margin: 6%;
+    margin-left: 2%;
+    margin-top: 4%;
+   
+  
+}
+
+
+
+body{
+    background-image: url("/images/fondbienetre2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+#Mdp{
+    margin-left: 35%;
+}
+
+#compte{
+    margin-left: -10%;
+}
+

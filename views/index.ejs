@@ -3,19 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Page d'Accueil</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
     <header>
-        <!-- Inclure le header ici -->
+            <div class="logo">
+              <img src="/images/logo_ndoumbé-removebg-preview.png" alt="" width="200px"> 
+            </div>
+            <div class="nav">
+               <ul>
+                    <li><a href="/auth/login">Connexion</a></li>
+                    <li><a href="/auth/register">Inscription</a></li>
+                    <li><a href="/posts">Voir l'actualité</a></li>
+               </ul>
+            </div>
+    
+                <h2>Espace d'echange de conseil <br>pour un meilleur <span>bien-être</span> </h2>    
     </header>
     <main>
-        <h1>Bienvenue sur la plateforme de bien-être</h1>
-        <p>Échangez des conseils de motivation et de bien-être avec notre communauté.</p>
-        <a href="/auth/register">Inscription</a>
-        <a href="/auth/login">Connexion</a>
-        <a href="/posts">Voir l'actualité</a>
-        
+    <section class="presentation">
+        <h3>Bienvenue sur Ndoumbé</h3>
+        <br>
+        <p><b>ProjetBN est une plate-forme innovante dédiée a la promotion du bien-être et du developpement <br>personnel.Nous croyons que le bien-être commence par l'échange et le partage de connaissances,<br> d'expériences et de conseils.Notre mission est de creer un espace communautaire ou chacun peut <br> s'inspirer, se motiver et se soutenir mutuellement dans leur quête d'un mode de vie plus sain et <br>épanouissant. </b></p>
+    </section>
+        <br><br>
+
+    <section class="offre">
+        <h3>Ce que nous offrons</h3>
+        <br><br><br>
+        <p><b>ici, les utilisateurs peuvent : <br><br><br> partager leurs experiences : </b>publiez des articles, des photos et des videos relatifs au bien-être, a la motivation et au developpement <br> personnel.</p>
+        <br>
+        <p><b>interagir avec la communauté : </b> Aimez, commentez et partagez les  publications des autres membres pour encourager une dynamique <br> positive et bienveillante.</p>
+        <br>
+        <p><b>Recevoir des conseils personnalisés : </b>Echangez directement avec  d'autres utilisateurs pour obtenir des conseils pratiques et <br> inspirants.</p>
+        <br>
+        <p><b>Suivre des utilisateurs inspirants : </b>Restea informés des dernières  publications et activités des personnes que vous suivez.</p>
+        <br>
+        <p><b>Chat en temps reel : </b>Communiquez instantanément avec d'autres membres pour des discusions enrichissantes et motivantes.</p>
+        <br>
+        <p><b>Recevoir des notifications : </b>Soyez alertés des nouvelles interactions et messages pour rester connectés avec la <br> communauté.</p>
+    </section>
+
+    <section class="philosophie">
+        <h3>Thème et philosophie</h3> <br>
+        <p>Le bien-être est au coeur de notre philosophie. Nous croyons que chacun merite de vivre une vie équilibrée <br>et épanouie. Que vous cherchiez a ameliorer votre santé physique, mentale ou emotionnelle, Ndoumbé est <br>la pour vous accompagner a chaque etape de votre parcours.</p><br><br><br>
+        <h3>Rejoignez-Nous</h3>
+        <br><br><br>
+        <p>Inscrivez-vous des aujourd'hui pour rejoindre notre communauté et commencez a partager et a recevoir <br> des conseils de bien-être.Ensemble, créons un environnement ou chacun peut grandir, se developper et <br> trouver l'inspiration nécessaire pour mener une vie heureuse et plus saine.</p>
+
+    </section>
+    <br><br><br>
+    <div class="formulaire">
+        <form action="/auth/login" method="post">
+        <p class="Connexion">Connexion</p><br><br><br>
+        <input type="text" placeholder="Email ou Username"> <br><br><br>
+        <input type="password" placeholder="Mot de passe"> <br><br><br>
+        <input type="submit"  value="Se connecter" id="Seconnecter"> <br><br><br>
+       
+    </form>
+    <div>
+        <a href="/auth/register" id="compte">Créer un compte</a>
+        <a href="/auth/forgot-password" id="Mdp">Mot de passe oublié?</a>
+         </div>
+    <br><br><br><br>
+
+    <div class="footer">
+
+    </div>
+</div>
 
     </main>
     <footer>

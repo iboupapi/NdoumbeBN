@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+.logo{
+    
+    text-align: center;
+    /*margin-top: -16px;*/
+}
+
+header{
+    background: url("/images/WhatsApp\ Image\ 2025-03-11\ à\ 20.59.29_a2fc3f6b.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.nav{
+    float: right;
+    margin-right: 5%;
+    margin-top: -10%;
+    
+}
+
+.nav ul{
+    display: flex;
+    list-style: none;
+   
+   
+   
+}
+
+ul li a{
+    text-decoration: none;
+    color: black;
+    
+}
+
+.nav ul li a{
+    margin: 40px;
+    
+    
+}
+
+li a:hover{
+    color: white;
+}
+
+h2{
+    margin-left: 10%;
+    margin-top: 10%;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+span{
+    color: greenyellow;
+}
+
+.presentation p{
+    margin-top: 3%;
+    margin-left: 5%;
+    font-size: small;
+}
+
+h3{
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: 200%;
+}
+
+.offre, p{
+    margin-left: 15px;
+}
+
+.formulaire{
+    margin-left: 31%;
+    border: 1px solid black;
+    width: 400px;
+    height: 350px;
+    background-color: rgba(63, 215, 63, 0.799);
+    margin-top: 2%;
+    
+}
+
+form{
+    text-align: center;
+    margin-right: 17%;
+  
+}
+
+.formulaire p{
+    margin-top: 6%;
+    color: white;
+    margin-right: -8%;
+    font-size: 30px;
+ 
+}
+
+.connexion{
+    margin-left: 5%;
+   
+}
+
+input{
+    padding: 5px;
+    margin-left: 10%;
+    border-radius: 10px;
+}
+
+#Seconnecter{
+    background-color: green;
+    color: white;
+}
+
+.footer{
+    border: 1px solid black;
+    width: 100vw;
+    height: 300px;
+    margin-left: -125%;
+    margin-top: 4%;
+    background-color: green;
+}
+
+.formulaire a{
+    color: black;
+}
+
+div{
+    margin: 6%;
+    margin-left: 2%;
+    margin-top: 0;
+   
+  
+}
+div a{
+    text-decoration: none;
+}
+
+#Mdp{
+    margin-left: 10%;
+}
+
+
+
+
+
+
+
+
+
+

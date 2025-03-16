@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Privé</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        /* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Blanc */
+    color: #333; /* Texte noir doux */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+h1 {
+    background-color: #007b5e; /* Vert principal */
+    color: #fff; /* Blanc pour contraste */
+    padding: 10px 0;
+    margin: 0;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333; /* Couleur de texte principale */
+}
+
+#messages {
+    list-style-type: none;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto 10px;
+    width: 90%; /* Largeur ajustée pour le centrage */
+    background-color: #f9f9f9; /* Fond gris léger */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+#messages li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#messages li:last-child {
+    border-bottom: none; /* Supprimer la bordure du dernier élément */
+}
+
+/* Formulaire */
+form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007b5e; /* Vert principal */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005f46; /* Vert foncé au survol */
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    #messages {
+        width: 95%; /* Réduction de la largeur */
+    }
+
+    form {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #input {
+        width: 100%; /* Ajuste l'input pour mobile */
+    }
+
+    button {
+        width: 100%; /* Bouton de même largeur */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <h1>Chat privé avec l'utilisateur <%= targetUserId %></h1>
+    <p><%= currentUsername %> soir</p>
+    <ul id="messages"></ul>
+    <form id="form" action="">
+        <input id="input" autocomplete="off" placeholder="Écrivez un message..." />
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <script>
+    
+    const socket = io();
+
+    const roomId = `<%= currentUserId %>_<%= targetUserId %>`;
+    const username = '<%= currentUsername %>'; // Nom de l'utilisateur
+    const userId = '<%= currentUserId %>';
+    const token = '<%= token %>'; // Token JWT
+
+// Rejoindre une salle
+socket.emit('join room', { roomId, userId, username });
+
+// Envoi d’un message
+document.getElementById('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = document.getElementById('input');
+
+    if (input.value.trim() !== '') {
+        socket.emit('chat message', {
+            roomId,
+            message: input.value,
+            token // Transmet le token avec le message
+        });
+        input.value = '';
+    }
+});
+
+// Afficher les messages reçus
+socket.on('chat message', (data) => {
+    const item = document.createElement('li');
+    item.textContent = `${data.sender}: ${data.message}`; // Affiche le nom et le message
+    document.getElementById('messages').appendChild(item);
+});
+
+// Afficher l'historique des messages
+socket.on('chat history', (messages) => {
+    messages.forEach((msg) => {
+        const item = document.createElement('li');
+        item.textContent = `${msg.username}: ${msg.content}`; // Affiche l'historique
+        document.getElementById('messages').appendChild(item);
+    });
+});
+
+        
+    </script>
+</body>
+</html>

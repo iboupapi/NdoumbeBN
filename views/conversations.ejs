@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversation</title>
+</head>
+<body>
+    <h1>Conversations</h1>
+<ul>
+    <% conversations.forEach((conv) => { %>
+        <li>
+            <a href="/chat/<%= conv.room_id %>">Conversation avec l'utilisateur <%= conv.sender_id %></a>
+        </li>
+    <% }); %>
+</ul>
+</body>
+</html>

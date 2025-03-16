@@ -1,0 +1,16 @@
+.container{
+   
+    width: 400px;
+    height: 400px;
+    margin-top: 8%;
+    padding: 3%;
+    background-image: url("/images/fondbienetre2.jpg");
+    
+}
+
+body{
+    background-image: url("/images/WhatsApp\ Image\ 2025-03-11\ à\ 20.59.29_a2fc3f6b.jpg");
+    background-size: cover;
+}
+
+
